@@ -1,0 +1,75 @@
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,">
+        <title>ACT VI - Slay or Nae!</title>
+        <link href="site-style.css" rel="stylesheet">
+        <link href="game-style.css" rel="stylesheet">
+        <script defer src="script.js"></script>
+    </head>
+
+    <body>
+        <div class="overlay start-screen" id="start-screen">
+            <span class="start-title">Ready to start the show?</span>
+            <span class="start-header">Click the ticket to start the game!</span>
+            <div class="full-ticket" id="start-button">
+                <button class="left-ticket-btn"><img src="ASSETS/START/left-ticket.PNG" class="left-ticket-img" id="left-ticket-img"></button>
+                <button class="right-ticket-btn"><img src="ASSETS/START/right-ticket.PNG" class="right-ticket-img" id="right-ticket-img"></button>
+            </div>
+        </div>
+
+        <div class="header" id="header">
+            <button class="left-header-btn header-btn" id="back-header-btn"><img id="back-btn-img" class="header-btn-img" src="ASSETS/HEADER/back.png"></button>
+            <button class="right-header-btn header-btn" id="mute-header-btn"><img id="mute-btn-img" class="header-btn-img" src="ASSETS/HEADER/unmute.png"></button>
+        </div>
+
+    <!-- yung game -->
+
+        <div class="game-board" id="game-board">
+
+            <div class="game-prompt">
+                <div>
+                   <span class="prompt-text">Which of these outfits is the approved dress code for</span> 
+                </div>
+                <div>
+                    <span class="prompt-level" id="level">School of Hotel, Restaurant and Institution Management</span> 
+                 </div>
+                 <div>
+                    <span class="prompt-score" id="score">SCORE: 0</span> 
+                 </div>
+            </div>
+
+            <div class="answer-btns">
+                <div>
+                    <button class="game-btn" id="left-game-btn"><img class="answer-img" id="left-answer-img" src="ITEMS/1-left.png"></button>
+                </div>
+                <div>
+                    <button class="game-btn" id="right-game-btn"><img class="answer-img" id="right-answer-img"  src="ITEMS/1-right.png"></button>
+                </div>
+            </div>
+
+            <div>
+                <button class="submit-btn" id="submit-btn"><img src="ASSETS/submit-btn.png"></button>
+            </div>
+
+        </div>
+
+
+    <!-- hanggang dito lang yung game -->
+    
+        <div class="overlay end-screen" id="pass-end-screen">
+            <img src="ASSETS/token.png" class="token-img">
+            <div class="end-message">Congratulations! You have earned the</div>
+            <div class="end-title"> INCLUSIVITY BADGE!</div>
+            <div class="end-message"> The secret code for the next Act is UNITY! The show has ended and you can click the button below to head back to the tent!</div>
+            <button class="menu-btn" id="menu-btn"><img class="menu-btn-img" src="ASSETS/menu-btn.png"></button>
+        </div>
+
+        <div class="overlay end-screen" id="fail-end-screen">
+            <div class="end-title">PLEASE TRY AGAIN</div>
+            <div class="end-message">You were unable to reach the minimum passing score. Refresh your the window to try again!</div>
+        </div>
+    </body>
+
+</html>

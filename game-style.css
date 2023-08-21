@@ -1,0 +1,189 @@
+/* FONTS */
+@font-face {
+    font-family: Akura;
+    src: url(FONTS/Akura\ Popo.ttf);
+}
+
+@font-face {
+    font-family: Arvo;
+    src: url(FONTS/Arvo/Arvo-Regular.ttf);
+}
+
+@font-face {
+    font-family: Citrus;
+    src: url(FONTS/Citrus\ Gothic/);
+}
+
+.game-board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px 20px 20px;
+
+    width: 860px;
+    gap: 10px;
+}
+
+.game-prompt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 500px;
+    height: auto;
+    gap: 15px;
+
+    text-align: center;
+
+    font-family: Arvo;
+    color: #FFF;
+}
+
+.prompt-text{
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+}
+
+.prompt-level{
+    color: #FFF;
+    font-family: Arvo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.prompt-score{
+    color: #FFF;
+    text-align: center;
+    font-family: Akura;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}   
+
+/* ANSWER BUTTONS */
+.answer-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 850px;
+
+}
+
+.game-btn{
+    background: none;
+    border: none;
+    width: 440px;
+    height: auto;
+
+    align-items: center;
+}
+
+.submit-btn{
+    background: none;
+    border: none;
+
+}
+
+/* HOVERS */
+
+.game-btn:hover{
+    transition-duration: 150ms;
+    transform: translateY(-1.0em);
+}
+
+.game-btn:active{
+    transition-duration: 150ms;
+    transform: translateY(-0.25em);
+}
+
+.submit-btn:hover{
+    transition-duration: 150ms;
+    transform: translateY(-1.0em);
+}
+
+.submit-btn:active{
+    transition-duration: 150ms;
+    transform: translateY(.50em);
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 768px){
+
+    .game-board{
+        width: 750px;
+    }
+
+    .answer-btns{
+        width: 620px;
+    }
+
+    .game-btn{
+        width: 300px;
+        height: auto;
+    }
+
+    .answer-img{
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 428px){
+
+    .game-board{
+        max-width: 390px;
+        width: 100%;
+        height: 100%;
+        
+    }
+    .answer-btns{
+        width: 400px;
+        justify-content: center;
+    }
+
+    .game-btn{
+        width: 200px;
+        height: auto;
+    }
+
+    .answer-img{
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+    }
+
+    .game-prompt{
+        width: 350px;
+        gap: 20px;
+    }
+
+    .prompt-text{
+        font-size: 12px;
+
+    }
+
+    .prompt-level{
+        font-size: 18px;
+
+    }
+
+    .prompt-score{
+        font-size: 32px;
+    }
+
+    .submit-btn{
+        width: 100%;
+
+    }
+}
