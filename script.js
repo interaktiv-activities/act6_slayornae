@@ -50,6 +50,8 @@ document.getElementById("start-button").addEventListener("click", startTicketInt
 
 let question = document.getElementById("level")
 let score = document.getElementById("score")
+let leftImg = document.getElementById("left-answer-img")
+let rightImg = document.getElementById("right-answer-img")
 
 let leftBtn = document.getElementById("left-game-btn")
 let rightBtn = document.getElementById("right-game-btn")
@@ -73,77 +75,64 @@ questionBank = [
     [["8-left", true],["8-right", false], "General Dress Code"],
     [["9-left", true],["9-right", false], "General Dress Code"],
     [["10-left", true],["10-right", false], "General Dress Code"],
+    [["10-left", true],["10-right", false], "General Dress Code"],
 ]
 
 // EVENT LISTENERS
 
-leftBtn.addEventListener("click", storeAnswerLeft)
-rightBtn.addEventListener("click", storeAnswerRight)
+leftBtn.addEventListener("click", selectChoiceA)
+rightBtn.addEventListener("click", selectChoiceB)
 
-function storeAnswerLeft() {
-    userAnswer = questionBank[roundIndex][0][1]
+// CHECK ANSWER
+
+function changeDisplay(){
+    leftNewImg = "ITEMS/" + questionBank[roundIndex][0][0] + ".png"
+    document.getElementById("left-answer-img").setAttribute("src", leftNewImg)
+    rightNewImg = "ITEMS/" + questionBank[roundIndex][1][0] + ".png"
+    document.getElementById("right-answer-img").setAttribute("src", rightNewImg)
+
+    question.innerHTML = questionBank[roundIndex][2]
 }
 
-function storeAnswerRight() {
-    userAnswer = questionBank[roundIndex][1][1]
-}
-
-// CHECK ANSWER / SUBMIT BUTTON
-
-function changeLeft() {
-    let newRound = questionBank[roundIndex][0][0]
-    let newImage = "ITEMS/" + newRound + ".png"
-    document.getElementById("left-answer-img").setAttribute("src", newImage)
-}
-
-function changeRight() {
-    let newRound = questionBank[roundIndex][1][0]
-    let newImage = "ITEMS/" + newRound + ".png"
-    document.getElementById("right-answer-img").setAttribute("src", newImage)
-}
-
-// SUBMIT FUNCTION
-
-submitBtn.addEventListener("click", submitAnswer)
-
-function submitAnswer() {
-    roundIndex
-    scoreCounter
-    userAnswer
-
-    if (userAnswer == true){
+function selectChoiceA(){
+    if(questionBank[roundIndex][0][1] == true){ 
         scoreCounter++
-        question.innerHTML = questionBank[roundIndex][2] 
         score.innerHTML = "SCORE: " + scoreCounter
+        roundIndex++
 
-        if(roundIndex == 8){
+        changeDisplay()
+        if(roundIndex == 10){
             endGame()
-        } else {
-            roundIndex++
         }
+    }else{
+        roundIndex++
+        changeDisplay()
+        if(roundIndex == 10){
+            endGame()
+        }
+    }
+}
 
-        changeLeft()
-        changeRight()
+function selectChoiceB(){
+    if(questionBank[roundIndex][1][1] == true){
+        scoreCounter++
+        score.innerHTML = "SCORE: " + scoreCounter
+        roundIndex++
+
+        changeDisplay()
         
-        userAnswer = 0
-
-    } else {
-        question.innerHTML = questionBank[roundIndex][2]
-
-        if(roundIndex == 8){
+        if(roundIndex == 10){
             endGame()
-        } else {
-            roundIndex++
         }
-
-        changeLeft()
-        changeRight()
-
-        userAnswer = 0
+    }else{
+        roundIndex++
+        changeDisplay()
+        if(roundIndex == 10){
+            endGame()
+        }
     }
 
 }
-
 // The following lines of codes hides all the header and gameboard elements, and shows the end message
 function endGame(){
     scoreCounter
@@ -151,7 +140,7 @@ function endGame(){
     document.getElementById("header").style.display = "none"
     clearInterval(backgroundMusicInterval)
     backgroundMusic.volume = 0
-    if (scoreCounter >= 8){
+    if (scoreCounter >= 7){
         document.getElementById("pass-end-screen").style.display = "flex"
     } else {
         document.getElementById("fail-end-screen").style.display = "flex"
